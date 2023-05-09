@@ -14,7 +14,15 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request, "base.html")
+    isTeacher = False
+    for g in request.user.groups.all():
+        if g.name == 'creator':
+            isTeacher = True
+            break
+    context={
+        'isTeacher':isTeacher
+    }
+    return render(request, "base.html", context)
 
 
 def my_login_view(request):
@@ -98,3 +106,8 @@ def my_profile(request):
         'user': user,
     }
     return render(request, 'my_profile.html', context)
+
+def QuizCreation(request):
+    template = loader.get_template('addQuiz.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
