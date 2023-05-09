@@ -2,14 +2,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Actions</title>
+    <title>Homepage</title>
 </head>
 <body>
-<h1>Actions</h1>
+<h1>Welcome {{user.username}}</h1>
 <ul>
-    <li><a href="{% url 'login' %}">Login</a></li>
-    <li><a href="{% url 'registration' %}">Registration</a></li>
-    <li><a href="{% url 'my_profile' %}">My Profile</a> </li>
+    {% if request.user.is_authenticated %}
+    <div>
+        <div id="navbar">
+            <a href="{% url 'my_profile' %}">My Profile</a>
+            <a href="{% url 'logout' %}">Log out</a>
+        </div>
+    </div>
+    {% else %}
+    <div>
+        <a href="{% url 'registration' %}">Sign up</a>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        {% if isTeacher %}
+        <div>
+            <h2>My quizzes</h2>
+            <a href="/createQuiz">Create Quiz!</a>
+        </div>
+        {% else %}
+        <div>
+            <h2>Availabe quizzes</h2>
+        </div>
+        {% endif %}
+    {% endif %} 
 </ul>
 </body>
 </html>
