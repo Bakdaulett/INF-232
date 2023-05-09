@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8e3f754-d05a-428e-8b98-804aca82fddd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/Quiz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/Quiz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,11 +22,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PXzwFhcJUXhOMyYu5TRULxXLYt" />
   <component name="ProjectViewState">
@@ -31,10 +39,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/aiger/Documents/GitHub/BackendFinal/Quiz/manage.py",
+    "last_opened_file_path": "C:/Users/aiger/Documents/GitHub/BackendFinal/Quiz/quizapp/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -43,6 +52,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aiger\Documents\GitHub\BackendFinal\Quiz\quizapp\templates" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Runserver" type="PythonConfigurationType" factoryName="Python">
       <module name="INF-232" />
