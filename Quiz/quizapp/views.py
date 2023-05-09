@@ -2,8 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import (get_object_or_404, render, HttpResponseRedirect, redirect)
+from django.template import loader
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from .models import *
 
 
 # Create your views here.
@@ -29,10 +35,11 @@ def my_registration_view(request):
     if request.method == "POST":
         username = request.POST['username']
         email = request.POST['email']
-        fname = request.POST['firstname']
         pass1 = request.POST['password1']
         pass2 = request.POST['password2']
-        check = ""
+        isteach = request.POST['radio']
+
+
 
 
         if User.objects.filter(username=username).first():
@@ -43,22 +50,35 @@ def my_registration_view(request):
             }
             return render(request, 'registration.html', context)
 
-        check = ""
-        if pass1 != pass2:
-            messages.error(request, "Passwords didn't matched!!")
-            check = "taken"
-            context = {
-                'check': check
-            }
-            return render(request, 'registration.html', context)
-
         myuser = User.objects.create_user(username, email, pass1)
-        profile.user = myuser
-        profile.save()
         myuser.is_staff = True
-        myuser.first_name = fname
-        myuser.last_name = lname
         myuser.save()
+
+        if isteach == "creator":
+            my_group = Group.objects.get(name='creator')
+            my_group.user_set.add(myuser)
+            record = Creator(username=username, email=email)
+            record.save()
+        elif isteach == "student":
+            my_group = Group.objects.get(name='student')
+            my_group.user_set.add(myuser)
+            record = Student(username=username)
+            record.save()
+
+
+
+
+
+
+        # check = ""
+        # if pass1 != pass2:
+        #     messages.error(request, "Passwords didn't matched!!")
+        #     check = "taken"
+        #     context = {
+        #         'check': check
+        #     }
+        #     return render(request, 'base.html', context)
+
 
         messages.success(request, "Your account has been signed up successfully!")
         return redirect('login')

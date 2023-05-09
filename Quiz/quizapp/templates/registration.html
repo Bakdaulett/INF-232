@@ -8,29 +8,25 @@
 <form method="post">
     {% csrf_token %}
     <div>
-        <label for="firstname">First Name:</label>
-        <input type="text" name="firstname" id="firstname" required>
-    </div>
-    <div>
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required>
     </div>
     <div>
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email" required>
+        <input type="email" name="email" id="email" required>
     </div>
     <div>
         <label for="password1">Password:</label>
-        <input type="password" name="password2" id="password1" required>
+        <input type="password" name="password1" id="password1" required>
     </div>
     <div>
         <label for="password2">Confirm password:</label>
         <input type="password" name="password2" id="password2" required>
     </div>
     <div>
-        <input type="radio" id="creator" name="creator" value="creator">
+        <input type="radio" id="creator" name="radio" value="creator">
         <label for="creator">Creator</label>
-        <input type="radio" id="student" name="student" value="student">
+        <input type="radio" id="student" name="radio" value="student">
         <label for="student">Student</label>
     </div>
     <button type="submit">Registration</button>
