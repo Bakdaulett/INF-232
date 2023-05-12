@@ -2,6 +2,6 @@
     <a href="{% url 'index' %}">Home</a>
     {% csrf_token %}
     <h2>My Profile</h2>
-    <p>Username: {{ user.username }}</p>
-    <p>Email: {{ user.email }}</p>
+    <p>Username: {{ request.user.username }}</p>
+    <p>Email: {{ request.user.email }}</p>
 {% endblock %}

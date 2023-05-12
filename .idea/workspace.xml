@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8e3f754-d05a-428e-8b98-804aca82fddd" name="Changes" comment="">
+    <list default="true" id="507fd90b-cd93-4062-a386-9bc8f9ef73f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/Quiz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/Quiz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/quizapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +86,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f8e3f754-d05a-428e-8b98-804aca82fddd" name="Changes" comment="" />
+      <changelist id="507fd90b-cd93-4062-a386-9bc8f9ef73f2" name="Changes" comment="" />
       <created>1683618450791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -98,6 +100,8 @@
       <workItem from="1683631325838" duration="405000" />
       <workItem from="1683631738977" duration="1021000" />
       <workItem from="1683632779450" duration="302000" />
+      <workItem from="1683905188036" duration="146000" />
+      <workItem from="1683905381641" duration="146000" />
     </task>
     <servers />
   </component>

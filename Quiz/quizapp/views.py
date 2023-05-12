@@ -40,8 +40,6 @@ def my_registration_view(request):
         isteach = request.POST['radio']
 
 
-
-
         if User.objects.filter(username=username).first():
             messages.error(request, "This username is already taken")
             check = "taken"
@@ -66,18 +64,14 @@ def my_registration_view(request):
             record.save()
 
 
-
-
-
-
-        # check = ""
-        # if pass1 != pass2:
-        #     messages.error(request, "Passwords didn't matched!!")
-        #     check = "taken"
-        #     context = {
-        #         'check': check
-        #     }
-        #     return render(request, 'base.html', context)
+        check = ""
+        if pass1 != pass2:
+            messages.error(request, "Passwords didn't matched!!")
+            check = "taken"
+            context = {
+                'check': check
+            }
+            return render(request, 'base.html', context)
 
 
         messages.success(request, "Your account has been signed up successfully!")
@@ -98,3 +92,12 @@ def my_profile(request):
         'user': user,
     }
     return render(request, 'my_profile.html', context)
+
+
+
+def test(request):
+    quiz = Quiz.objects.all()
+    context = {
+        'quiz': quiz,
+    }
+    return render(request, 'test.html', context)
