@@ -5,11 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Creation Page</title>
+    <script>
+        let count = 1
+        function createTemplate(){
+            count++
+            let content = document.createElement("div")
+            content.className = "questionForm"
+            content.id = "questionno" + count
+
+            let p1 = document.createElement("p")
+            p1.innerHTML = count + ". Question: "
+            content.append(p1)
+
+            let f1 = document.createElement("input")
+            f1.type = "text"
+            f1.name = "question"
+            f1.className = "question"
+            content.append(f1)
+
+            let p2 = document.createElement("p")
+            p2.innerHTML = "Answer: "
+            content.append(p2)
+
+            let f2 = document.createElement("input")
+            f2.type = "text"
+            f2.name = "answer"
+            f2.className = "answer"
+            content.append(f2)
+
+            let btn = document.createElement("button")
+        
+            btn.className = "btnAddOption"
+            btn.setAttribute("onclick", "addOption(this)")
+            btn.type = "button"
+            btn.innerHTML = "Add Option"
+
+            content.append(document.createElement("p"))
+            content.append(btn)
+            return content
+        }
+        function addQuestion() {
+            console.log('btnaddquestion is clicked!')
+            let container = document.getElementById('theform')
+            
+            let content = createTemplate()
+            
+            container.insertBefore(content, document.getElementById("btnAddQuestion"))
+        }
+        function addOption(btn){
+            console.log('btnaddoption is clicked!')
+            let parent = btn.parentElement
+            let number = parent.childElementCount - 5
+
+            let content = document.createElement("div")
+            content.className = "option"
+            content.id = "q" + parent.id.replace(/[^0-9]/g, "") + "option" + number
+            
+
+            let p = document.createElement("p")
+            p.innerHTML = "Option " + number + ": "
+            content.append(p)
+
+            let f = document.createElement("input")
+            f.type = "text"
+            f.name = "q" + parent.id.replace(/[^0-9]/g, "") + "options"
+            f.className = "option"
+            content.append(f)
+
+            parent.insertBefore(content, btn)
+            
+        }
+    </script>
 </head>
 <body>
-    
-    <h2>Placeholder</h2>
+    <a href="/">Back</a>
+    <h2>Quiz creation form!</h2>
 
+    <p>Title of the Quiz: </p>
+    
+    <form action="/addQuiz/" method="POST" id="theform">
+        {% csrf_token %}
+        <input type="text" name="title" id="title">
+        <div class="questionForm" id = "questionno1">
+            <p>1. Question: </p>
+            <input type="text" name="question" class="question">
+            <p>Answer: </p>
+            <input type="text" name="answer" class="answer">
+            <p>Note: if the question has no options, question type will automatically be assigned to Fill-In Type</p>
+            <button class="btnAddOption" onclick="addOption(this)" type="button">Add Option</button>
+        </div>
+        <button id="btnAddQuestion" onclick="addQuestion()" type="button">Add Question</button>
+
+        <button type="submit">Submit</button>
+    </form>
 
 </body>
 </html>

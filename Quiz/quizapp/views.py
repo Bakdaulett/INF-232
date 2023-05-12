@@ -10,7 +10,7 @@ from django.template import loader
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
-
+from django.db import transaction
 
 # Create your views here.
 def index(request):
@@ -19,8 +19,14 @@ def index(request):
         if g.name == 'creator':
             isTeacher = True
             break
+
+    quizzes = Quiz.objects.all()
+    
+    if isTeacher:
+        quizzes = quizzes.filter(creator_id = request.user.id)
     context={
-        'isTeacher':isTeacher
+        'isTeacher':isTeacher,
+        'quizzes':quizzes,
     }
     return render(request, "base.html", context)
 
@@ -65,12 +71,12 @@ def my_registration_view(request):
         if isteach == "creator":
             my_group = Group.objects.get(name='creator')
             my_group.user_set.add(myuser)
-            record = Creator(username=username, email=email)
+            record = Creator(creator_id=myuser.id, username=username, email=email)
             record.save()
         elif isteach == "student":
             my_group = Group.objects.get(name='student')
             my_group.user_set.add(myuser)
-            record = Student(username=username)
+            record = Student(user_id=myuser.id, username=username)
             record.save()
 
 
@@ -111,3 +117,26 @@ def QuizCreation(request):
     template = loader.get_template('addQuiz.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+@permission_required("quizapp.add_quiz")
+@transaction.atomic
+def addQuiz(request):
+    title = request.POST['title']
+    questions = request.POST.getlist('question')
+    answers = request.POST.getlist('answer')
+
+    if len(questions) != len(answers):
+            redirect("/error-page")
+
+    quiz = Quiz(topic=title, creator_id=Creator.objects.get(creator_id=request.user.id))
+    quiz.save()
+
+    for i in range (0, len(questions)):
+        q = Question(question=questions[i], answer=answers[i], quiz_id=quiz)
+        q.save()
+        options = request.POST.getlist("q" + str(i + 1) + "options")
+        for option in options:
+            o = Variant(variant=option, qa_id=q)
+            o.save()
+
+    return redirect("/")
