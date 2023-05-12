@@ -32,7 +32,11 @@
             <h2>Availabe quizzes</h2>
         </div>
         {% endif %}
+        {% for quiz in quizzes %}
+            <a href="/quiz/{{quiz.quiz_id}}">{{quiz.topic}}</a>
+        {% endfor %}
     {% endif %} 
+    
 </ul>
 </body>
 </html>
