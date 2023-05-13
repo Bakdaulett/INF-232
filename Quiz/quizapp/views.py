@@ -147,7 +147,7 @@ def question(request, id):
 
 @login_required
 @permission_required('auth.view_user', raise_exception=True)
-def teach_results(request):
+def teacher_results(request):
     creator = request.user.creator
     quizzes = Quiz.objects.filter(creator_id=creator.creator_id)
     quiz_results = []
@@ -163,6 +163,6 @@ def teach_results(request):
         quiz_result['results'] = results
         quiz_results.append(quiz_result)
     context = {'quiz_results': quiz_results}
-    return render(request, 'results.html', context)
+    return render(request, 'teacher_results.html', context)
 
 
