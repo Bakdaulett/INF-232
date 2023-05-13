@@ -17,14 +17,14 @@ class Creator(models.Model):
 class Quiz(models.Model):
     quiz_id = models.AutoField(primary_key=True)
     topic = models.CharField(max_length=255)
-    creator_id = models.ForeignKey(Creator, on_delete=models.CASCADE)
+    creator_id = models.CharField(max_length=255)
 
 
 class Question(models.Model):
     qa_id = models.AutoField(primary_key=True)
     question = models.CharField(max_length=255)
     answer = models.CharField(max_length=255)
-    quiz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    quiz_id = models.CharField(max_length=255)
 
 
 class Variant(models.Model):

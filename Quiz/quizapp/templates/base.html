@@ -8,21 +8,16 @@
 <h1>Welcome {{user.username}}</h1>
 <ul>
 
-    <li><a href="{% url 'login' %}">Login</a></li>
-    <li><a href="{% url 'registration' %}">Registration</a></li>
-    <li><a href="{% url 'my_profile' %}">My Profile</a> </li>
-    <li><a href="{% url 'test' %}">Quizes</a> </li>
-
     {% if request.user.is_authenticated %}
     <div>
         <div id="navbar">
-            <a href="{% url 'my_profile' %}">My Profile</a>
+            <a href="{% url 'my_profile' %}">My Profile</a> </br>
             <a href="{% url 'logout' %}">Log out</a>
         </div>
     </div>
     {% else %}
     <div>
-        <a href="{% url 'registration' %}">Sign up</a>
+        <a href="{% url 'registration' %}">Sign up</a> </br>
         <a href="{% url 'login' %}">Login</a>
     </div>
     {% endif %}
@@ -39,7 +34,7 @@
         </div>
         {% endif %}
         {% for quiz in quizzes %}
-            <a href="/quiz/{{quiz.quiz_id}}">{{quiz.topic}}</a>
+            <a href="/quiz/{{quiz.quiz_id}}">{{quiz.topic}}</a></br>
         {% endfor %}
     {% endif %} 
     

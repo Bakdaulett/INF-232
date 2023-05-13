@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="507fd90b-cd93-4062-a386-9bc8f9ef73f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/question.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/Quiz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/Quiz/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/quizapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,13 +102,27 @@
       <workItem from="1683632779450" duration="302000" />
       <workItem from="1683905188036" duration="146000" />
       <workItem from="1683905381641" duration="146000" />
+      <workItem from="1683914880539" duration="155000" />
+      <workItem from="1683950511992" duration="259000" />
+      <workItem from="1683950816875" duration="6687000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/INF_232$Runserver.coverage" NAME="Runserver Coverage Results" MODIFIED="1683632893261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Quiz" />
+    <SUITE FILE_PATH="coverage/INF_232$Runserver.coverage" NAME="Runserver Coverage Results" MODIFIED="1683954807865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Quiz" />
   </component>
 </project>

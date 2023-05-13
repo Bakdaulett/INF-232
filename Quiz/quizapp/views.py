@@ -38,7 +38,7 @@ def my_login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/my_profile')
+            return redirect('index')
         else:
             return render(request, 'login.html', {'error_message': 'Invalid login credentials'})
     else:
@@ -74,7 +74,7 @@ def my_registration_view(request):
         elif isteach == "student":
             my_group = Group.objects.get(name='student')
             my_group.user_set.add(myuser)
-            record = Student(user_id=myuser.id, username=username)
+            record = Student(user_id=myuser.id, username=username, email=email)
             record.save()
 
 
@@ -108,15 +108,6 @@ def my_profile(request):
     return render(request, 'my_profile.html', context)
 
 
-
-
-def test(request):
-    quiz = Quiz.objects.all()
-    context = {
-        'quiz': quiz,
-    }
-    return render(request, 'test.html', context)
-
 def QuizCreation(request):
     template = loader.get_template('addQuiz.html')
     context = {}
@@ -132,7 +123,7 @@ def addQuiz(request):
     if len(questions) != len(answers):
             redirect("/error-page")
 
-    quiz = Quiz(topic=title, creator_id=Creator.objects.get(creator_id=request.user.id))
+    quiz = Quiz(topic=title, creator_id=(Creator.objects.get(creator_id=request.user.id)).creator_id)
     quiz.save()
 
     for i in range (0, len(questions)):
@@ -144,4 +135,13 @@ def addQuiz(request):
             o.save()
 
     return redirect("/")
+
+
+def question(request, id):
+    question = Question.objects.filter(qa_id=id)
+    context = {
+        'question': question,
+    }
+
+    return render(request, 'question.html', context)
 
