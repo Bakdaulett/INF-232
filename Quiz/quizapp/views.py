@@ -145,3 +145,24 @@ def question(request, id):
 
     return render(request, 'question.html', context)
 
+@login_required
+@permission_required('auth.view_user', raise_exception=True)
+def teach_results(request):
+    creator = request.user.creator
+    quizzes = Quiz.objects.filter(creator_id=creator.creator_id)
+    quiz_results = []
+    for quiz in quizzes:
+        quiz_result = {}
+        quiz_result['quiz'] = quiz
+        students = Student.objects.all()
+        results = []
+        for student in students:
+            result = QuizResult.objects.filter(quiz=quiz, student=student).first()
+            if result is not None:
+                results.append(result)
+        quiz_result['results'] = results
+        quiz_results.append(quiz_result)
+    context = {'quiz_results': quiz_results}
+    return render(request, 'results.html', context)
+
+
