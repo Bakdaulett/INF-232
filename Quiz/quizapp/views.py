@@ -173,7 +173,6 @@ def question(request, id):
         for i in questions:
             variants = Variant.objects.all().filter(qa_id=i.qa_id)
             arr.append(variants)
-        random.shuffle(arr)
         context = {
             'arr': arr,
             'questions': questions,
