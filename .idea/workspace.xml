@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="507fd90b-cd93-4062-a386-9bc8f9ef73f2" name="Changes" comment="">
+    <list default="true" id="64d81d5d-2c61-4130-b5d9-f8298bd0f22b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/addQuiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/addQuiz.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/my_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/teacher_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/teacher_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +64,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\Бакдаулет\Documents\GitHub\INF-232\Quiz\myworld\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.11 (INF-232)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Quiz" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -128,8 +121,6 @@
       <workItem from="1684069562860" duration="110000" />
       <workItem from="1684069751155" duration="75000" />
       <workItem from="1684070169012" duration="723000" />
-      <workItem from="1684086419243" duration="752000" />
-      <workItem from="1684087189324" duration="1685000" />
     </task>
     <servers />
   </component>
