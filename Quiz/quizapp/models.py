@@ -6,6 +6,10 @@ from django.db import models
 class Student(models.Model):
     user_id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=255)
+    email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.user_id}: {self.username}"
 
 
 class Creator(models.Model):
@@ -33,6 +37,7 @@ class Variant(models.Model):
     qa_id = models.ForeignKey(Question, on_delete=models.CASCADE)
 
 class QuizResult(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    res_id = models.AutoField(primary_key=True)
+    quiz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE, null=True)
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
     score = models.IntegerField()
