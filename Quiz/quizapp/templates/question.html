@@ -15,7 +15,31 @@
 <form method='post'>
     {% csrf_token %}
 
-    {% for question in questions %}
+    {% for question in arr %}
+        <div class="form-group">
+            <label for="question">{{ question.surak }}</label>
+        </div>
+        <div class="form-check">
+            {% if question.isFillin %}
+                <div class="form-group">
+                    <input type="text" name="{{ question.surak }}">
+                </div>
+            {% else %}
+                {% for variant in question.varics %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{question.surak}}" id="{{variant}}" value="{{ variant }}" >
+                        <label class="form-check-label" for="{{variant}}">
+                            {{ variant }}
+                        </label>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+            <br>
+        </div>
+    {% endfor %}
+
+    <!-- {% for question in questions %}
         {% if question.variant_set.all %}
             <div class="form-group">
                 <label for="question">{{ question.question }}</label>
@@ -43,7 +67,7 @@
                 <input type="text" name="{{ question.question }}">
             </div>
         {% endif %}
-    {% endfor %}
+    {% endfor %} -->
 
     <input id='timer' type='hidden' name="timer" value="">
     <br>

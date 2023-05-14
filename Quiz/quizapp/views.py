@@ -75,7 +75,7 @@ def my_registration_view(request):
         elif isteach == "student":
             my_group = Group.objects.get(name='student')
             my_group.user_set.add(myuser)
-            record = Student(user_id=myuser.id, username=username)
+            record = Student(user_id=myuser.id, username=username, email=email)
             record.save()
 
         check = ""
@@ -168,15 +168,30 @@ def question(request, id):
         return render(request, 'result.html', context)
 
     else:
+        quizname = Quiz.objects.get(quiz_id = id).topic
         questions = Question.objects.all().filter(quiz_id=id)
+        # questions = list(questions)
         arr = []
         for i in questions:
-            variants = Variant.objects.all().filter(qa_id=i.qa_id)
-            arr.append(variants)
-        random.shuffle(arr)
+            variants = i.variant_set.all().values()
+            varics = []
+            for v in variants:
+                varics.append(v['variant'])
+            varics.append(i.answer)
+
+            random.shuffle(varics)
+
+            q = {
+                "surak": i.question,
+                "varics": varics,
+                "isFillin": len(varics) == 1,
+            }
+            arr.append(q)
+
         context = {
             'arr': arr,
             'questions': questions,
+            'quizname': quizname,
         }
         return render(request, 'question.html', context)
 
