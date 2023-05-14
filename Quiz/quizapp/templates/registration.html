@@ -16,32 +16,34 @@
 <a href="{% url 'logout' %}">Logout</a>
 {% else %}
 <h2>Registration</h2>
-<form method="post">
+<div class="wrapper">
+    <form method="post">
     {% csrf_token %}
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-    </div>
-    <div>
-        <label for="password1">Password:</label>
-        <input type="password" name="password1" id="password1" required>
-    </div>
-    <div>
-        <label for="password2">Confirm password:</label>
-        <input type="password" name="password2" id="password2" required>
-    </div>
-    <div class="radio_buttons">
-        <input type="radio" id="creator" name="radio" value="creator">
-        <label for="creator">Creator</label>
-        <input type="radio" id="student" name="radio" value="student">
-        <label for="student">Student</label>
-    </div>
-    <button type="submit">Registration</button>
-</form>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div id="divemail">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="password1">Password:</label>
+            <input type="password" name="password1" id="password1" required>
+        </div>
+        <div>
+            <label for="password2">Confirm password:</label>
+            <input type="password" name="password2" id="password2" required>
+        </div>
+        <div class="radio_buttons">
+            <input type="radio" id="creator" name="radio" value="creator" checked="checked">
+            <label for="creator">Creator</label>
+            <input type="radio" id="student" name="radio" value="student">
+            <label for="student">Student</label>
+        </div>
+        <button type="submit">Registration</button>
+    </form>
+</div>
 {% if error_message %}
 <p>{{ error_message }}</p>
 {% endif %}
