@@ -28,4 +28,5 @@ urlpatterns = [
     path('createQuiz/', views.QuizCreation, name='addQuiz'),
     path('addQuiz/', views.addQuiz),
     path('quiz/<int:id>/', views.question, name='quiz'),
+    path('teacher_results/', views.teacher_results, name='teacher_results')
 ]

@@ -31,3 +31,8 @@ class Variant(models.Model):
     v_id = models.AutoField(primary_key=True)
     variant = models.CharField(max_length=255)
     qa_id = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+class QuizResult(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    score = models.IntegerField()
