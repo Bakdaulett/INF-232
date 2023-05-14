@@ -11,6 +11,7 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from django.db import transaction
+import random
 
 
 # Create your views here.
@@ -152,12 +153,13 @@ def question(request, id):
             else:
                 wrong += 1
         percent = score / (total * 10) * 100
+        percent_ans = '%.1f' % percent
         context = {
             'score': score,
             'time': request.POST.get('timer'),
             'correct': correct,
             'wrong': wrong,
-            'percent': percent,
+            'percent': percent_ans,
             'total': total
         }
         return render(request, 'result.html', context)
@@ -168,6 +170,7 @@ def question(request, id):
         for i in questions:
             variants = Variant.objects.all().filter(qa_id=i.qa_id)
             arr.append(variants)
+        random.shuffle(arr)
         context = {
             'arr': arr,
             'questions': questions,
