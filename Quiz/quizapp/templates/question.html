@@ -14,7 +14,6 @@
 
 <form method='post'>
     {% csrf_token %}
-
     {% for question in arr %}
         <div class="form-group">
             <label for="question">{{ question.surak }}</label>

@@ -187,7 +187,6 @@ def question(request, id):
                 "isFillin": len(varics) == 1,
             }
             arr.append(q)
-
         context = {
             'arr': arr,
             'quizname': quizname,
