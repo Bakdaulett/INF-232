@@ -5,36 +5,36 @@ h1 {
     margin-bottom: 30px;
   }
   
-  #navbar {
+#navbar {
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     padding: 10px;
     margin-bottom: 30px;
   }
   
-  #navbar a {
+#navbar a {
     text-decoration: none;
     color: #333;
     padding: 5px;
     margin-right: 10px;
   }
   
-  #navbar a:hover {
+#navbar a:hover {
     color: #fff;
     background-color: #333;
   }
   
-  ul a {
+ul a {
     text-decoration: none;
     color: #333;
   }
   
-  ul a:hover {
+ul a:hover {
     color: #fff;
     background-color: #333;
   }
   
-  div a[href="/createQuiz"] {
+div a[href="/createQuiz"] {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
@@ -42,37 +42,37 @@ h1 {
     text-decoration: none;
   }
   
-  div a[href="/createQuiz"]:hover {
+div a[href="/createQuiz"]:hover {
     background-color: #fff;
     color: #333;
   }
   
-  div + div + div a {
+div + div + div a {
     text-decoration: none;
     color: #333;
   }
   
-  div + div + div a:hover {
+div + div + div a:hover {
     color: #fff;
     background-color: #333;
   }
   
-  div:first-of-type a {
+div:first-of-type a {
     text-decoration: none;
     color: #333;
     margin-right: 10px;
   }
   
-  div:first-of-type a:hover {
+div:first-of-type a:hover {
     color: #fff;
     background-color: #333;
   }
   
-  div:not(:first-of-type) {
+div:not(:first-of-type) {
     margin-top: 30px;
   }
   
-  h2:last-of-type {
+h2:last-of-type {
     margin-bottom: 10px;
   }
   
