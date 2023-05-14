@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+h2 {
+    color: #007bff;
+}
+
+#title {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.questionForm {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.questionForm p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.questionForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.questionForm .btnAddOption {
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.questionForm .btnAddOption:hover {
+    background-color: #0069d9;
+}
+
+.questionForm .option {
+    margin-top: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.questionForm .option p {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    font-weight: normal;
+}
+
+.questionForm .option input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.questionForm .option button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.questionForm .option button:hover {
+    background-color: #c82333;
+}
+
+#btnAddQuestion {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btnAddQuestion:hover {
+    background-color: #0069d9;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0069d9;
+}
