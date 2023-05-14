@@ -36,6 +36,14 @@
         {% for quiz in quizzes %}
             <a href="/quiz/{{quiz.quiz_id}}">{{quiz.topic}}</a></br>
         {% endfor %}
+        {% if isTeacher %}
+        <div>
+            <h2>Results of Students:</h2>
+        </div>
+        {% for x in quizzes %}
+            <a href="/teacher_results/{{x.quiz_id}}">{{x.topic}}</a></br>
+        {% endfor %}
+        {% endif %}
     {% endif %} 
     
 

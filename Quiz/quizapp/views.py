@@ -160,6 +160,9 @@ def question(request, id):
             'percent': percent,
             'total': total
         }
+        for q in questions:
+            qr = QuizResult(quiz_id=q.quiz_id, student_id_id=request.user.id, score=score)
+            qr.save()
         return render(request, 'result.html', context)
 
     else:
@@ -176,23 +179,12 @@ def question(request, id):
 
 
 @login_required
-@permission_required('auth.view_user', raise_exception=True)
-def teacher_results(request):
-    creator = request.user.creator
-    quizzes = Quiz.objects.filter(creator_id=creator.creator_id)
-    quiz_results = []
-    for quiz in quizzes:
-        quiz_result = {}
-        quiz_result['quiz'] = quiz
-        students = Student.objects.all()
-        results = []
-        for student in students:
-            result = QuizResult.objects.filter(quiz=quiz, student=student).first()
-            if result is not None:
-                results.append(result)
-        quiz_result['results'] = results
-        quiz_results.append(quiz_result)
-    context = {'quiz_results': quiz_results}
+@permission_required("quizapp.add_quiz")
+def teacher_results(request, id):
+    results = QuizResult.objects.all().filter(quiz_id=id)
+    context = {
+        'results': results
+    }
     return render(request, 'teacher_results.html', context)
 
 
