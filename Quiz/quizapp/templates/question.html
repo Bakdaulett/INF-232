@@ -5,10 +5,69 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Questions: </h2>
-{% for i in question %}
-<p>{{ i.question }}</p>
-<input type="text">
-{% endfor %}
+<div class="container ">
+<h1>Welcome to DataFlair Quiz</h1>
+
+<div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
+
+<form method='post'>
+    {% csrf_token %}
+
+    {% for question in questions %}
+        {% if question.variant_set.all %}
+            <div class="form-group">
+                <label for="question">{{ question.question }}</label>
+            </div>
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{ question.question }}" id="radio" value="{{ question.answer }}" >
+            <label class="form-check-label" for="gridRadios1">
+                {{question.answer}}
+            </label>
+        </div>
+            <div class="form-check">
+                {% for variant in question.variant_set.all %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{ question.question }}" id="radio" value="{{ variant.variant }}" >
+                        <label class="form-check-label" for="gridRadios1">
+                            {{ variant.variant }}
+                        </label>
+                    </div>
+                {% endfor %}
+                <br>
+            </div>
+        {% else %}
+            <div class="form-group">
+                <label for="question">{{ question.question }}</label>
+                <input type="text" name="{{ question.question }}">
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <input id='timer' type='hidden' name="timer" value="">
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+    {% block script %}
+
+        <script>
+            console.log('hello world')
+            const timer=document.getElementById('displaytimer')
+            console.log(timer.textContent)
+            const inputtag = document.getElementById('timer')
+
+            t=0
+            setInterval(()=>{
+                t+=1
+                timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
+                inputtag.value = t
+            },1000)
+        </script>
+    {% endblock script %}
+
+</div>
 </body>
 </html>

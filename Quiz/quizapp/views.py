@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from django.db import transaction
 
+
 # Create your views here.
 def index(request):
     isTeacher = False
@@ -21,12 +22,12 @@ def index(request):
             break
 
     quizzes = Quiz.objects.all()
-    
+
     if isTeacher:
-        quizzes = quizzes.filter(creator_id = request.user.id)
-    context={
-        'isTeacher':isTeacher,
-        'quizzes':quizzes,
+        quizzes = quizzes.filter(creator_id=request.user.id)
+    context = {
+        'isTeacher': isTeacher,
+        'quizzes': quizzes,
     }
     return render(request, "base.html", context)
 
@@ -53,7 +54,6 @@ def my_registration_view(request):
         pass2 = request.POST['password2']
         isteach = request.POST['radio']
 
-
         if User.objects.filter(username=username).first():
             messages.error(request, "This username is already taken")
             check = "taken"
@@ -77,7 +77,6 @@ def my_registration_view(request):
             record = Student(user_id=myuser.id, username=username, email=email)
             record.save()
 
-
         check = ""
         if pass1 != pass2:
             messages.error(request, "Passwords didn't matched!!")
@@ -86,7 +85,6 @@ def my_registration_view(request):
                 'check': check
             }
             return render(request, 'base.html', context)
-
 
         messages.success(request, "Your account has been signed up successfully!")
         return redirect('login')
@@ -113,6 +111,7 @@ def QuizCreation(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+
 @permission_required("quizapp.add_quiz")
 @transaction.atomic
 def addQuiz(request):
@@ -121,12 +120,12 @@ def addQuiz(request):
     answers = request.POST.getlist('answer')
 
     if len(questions) != len(answers):
-            redirect("/error-page")
+        redirect("/error-page")
 
-    quiz = Quiz(topic=title, creator_id=(Creator.objects.get(creator_id=request.user.id)).creator_id)
+    quiz = Quiz(topic=title, creator_id=(Creator.objects.get(creator_id=request.user.id)))
     quiz.save()
 
-    for i in range (0, len(questions)):
+    for i in range(0, len(questions)):
         q = Question(question=questions[i], answer=answers[i], quiz_id=quiz)
         q.save()
         options = request.POST.getlist("q" + str(i + 1) + "options")
@@ -138,10 +137,38 @@ def addQuiz(request):
 
 
 def question(request, id):
-    question = Question.objects.filter(qa_id=id)
-    context = {
-        'question': question,
-    }
-
-    return render(request, 'question.html', context)
-
+    if request.method == 'POST':
+        questions = Question.objects.all().filter(quiz_id=id)
+        score = 0
+        wrong = 0
+        correct = 0
+        total = 0
+        for q in questions:
+            total += 1
+            answer = request.POST.get(q.question)
+            if answer == q.answer:
+                score += 10
+                correct += 1
+            else:
+                wrong += 1
+        percent = score / (total * 10) * 100
+        context = {
+            'score': score,
+            'time': request.POST.get('timer'),
+            'correct': correct,
+            'wrong': wrong,
+            'percent': percent,
+            'total': total
+        }
+        return render(request, 'result.html', context)
+    else:
+        questions = Question.objects.all().filter(quiz_id=id)
+        arr = []
+        for i in questions:
+            variants = Variant.objects.all().filter(qa_id=i.qa_id)
+            arr.append(variants)
+        context = {
+            'arr': arr,
+            'questions': questions,
+        }
+        return render(request, 'question.html', context)
