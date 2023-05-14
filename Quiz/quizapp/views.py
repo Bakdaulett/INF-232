@@ -165,6 +165,7 @@ def question(request, id):
         for q in questions:
             qr = QuizResult(quiz_id=q.quiz_id, student_id_id=request.user.id, score=score)
             qr.save()
+            break
         return render(request, 'result.html', context)
 
     else:

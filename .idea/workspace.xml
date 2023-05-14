@@ -7,6 +7,8 @@
     <list default="true" id="507fd90b-cd93-4062-a386-9bc8f9ef73f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quiz/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz/quizapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz/quizapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\Бакдаулет\Documents\GitHub\INF-232\Quiz\myworld\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.11 (INF-232)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Quiz" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -136,8 +137,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/INF_232$Runserver.coverage" NAME="Runserver Coverage Results" MODIFIED="1684070535645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Quiz" />
   </component>
 </project>
