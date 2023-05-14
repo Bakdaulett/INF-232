@@ -192,6 +192,7 @@ def question(request, id):
             'quizname': quizname,
         }
         return render(request, 'question.html', context)
+    
 
 
 @login_required
