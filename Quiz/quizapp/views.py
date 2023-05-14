@@ -190,7 +190,6 @@ def question(request, id):
 
         context = {
             'arr': arr,
-            'questions': questions,
             'quizname': quizname,
         }
         return render(request, 'question.html', context)
