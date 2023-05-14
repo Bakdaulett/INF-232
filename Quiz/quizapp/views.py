@@ -74,7 +74,7 @@ def my_registration_view(request):
         elif isteach == "student":
             my_group = Group.objects.get(name='student')
             my_group.user_set.add(myuser)
-            record = Student(user_id=myuser.id, username=username, email=email)
+            record = Student(user_id=myuser.id, username=username)
             record.save()
 
         check = ""
