@@ -174,12 +174,6 @@ def question(request, id):
         }
         return render(request, 'question.html', context)
 
-    question = Question.objects.filter(qa_id=id)
-    context = {
-        'question': question,
-    }
-
-    return render(request, 'question.html', context)
 
 @login_required
 @permission_required('auth.view_user', raise_exception=True)
