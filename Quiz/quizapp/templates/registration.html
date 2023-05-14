@@ -1,4 +1,15 @@
-{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}" type="text/css">
+    <title>Registration</title>
+</head>
+<body>
+    {% block content %}
 <a href="{% url 'index' %}">Home</a>
 {% if user.is_authenticated %}
 <p>You are logged in as {{ user.username }}.</p>
@@ -23,7 +34,7 @@
         <label for="password2">Confirm password:</label>
         <input type="password" name="password2" id="password2" required>
     </div>
-    <div>
+    <div class="radio_buttons">
         <input type="radio" id="creator" name="radio" value="creator">
         <label for="creator">Creator</label>
         <input type="radio" id="student" name="radio" value="student">
@@ -36,3 +47,5 @@
 {% endif %}
 {% endif %}
 {% endblock %}
+</body>
+</html>
