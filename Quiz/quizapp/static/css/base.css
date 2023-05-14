@@ -1,78 +1,95 @@
+body {
+  background-color: #f2f2f2;
+}
+
 h1 {
-    font-size: 36px;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 30px;
-  }
-  
+  padding: 20px;
+}
+
 #navbar {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 30px;
-  }
-  
+  background-color: #4CAF50;
+  overflow: hidden;
+}
+
 #navbar a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px;
-    margin-right: 10px;
-  }
-  
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 #navbar a:hover {
-    color: #fff;
-    background-color: #333;
-  }
-  
+  background-color: #ddd;
+  color: black;
+}
+
+a {
+  padding: 5px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 ul a {
-    text-decoration: none;
-    color: #333;
-  }
-  
+  display: block;
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+}
+
 ul a:hover {
-    color: #fff;
-    background-color: #333;
-  }
-  
-div a[href="/createQuiz"] {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-div a[href="/createQuiz"]:hover {
-    background-color: #fff;
-    color: #333;
-  }
-  
-div + div + div a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-div + div + div a:hover {
-    color: #fff;
-    background-color: #333;
-  }
-  
-div:first-of-type a {
-    text-decoration: none;
-    color: #333;
-    margin-right: 10px;
-  }
-  
-div:first-of-type a:hover {
-    color: #fff;
-    background-color: #333;
-  }
-  
-div:not(:first-of-type) {
-    margin-top: 30px;
-  }
-  
-h2:last-of-type {
-    margin-bottom: 10px;
-  }
-  
+  background-color: #ddd;
+  color: black;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+form {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.formbtn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.formbtn:hover {
+  background-color: #3e8e41;
+}
