@@ -34,14 +34,21 @@
             content.append(f2)
 
             let btn = document.createElement("button")
-        
             btn.className = "btnAddOption"
             btn.setAttribute("onclick", "addOption(this)")
             btn.type = "button"
             btn.innerHTML = "Add Option"
-
             content.append(document.createElement("p"))
             content.append(btn)
+
+            let btnRemoveQ = document.createElement("button")
+            btnRemoveQ.className = "btnRemoveQ"
+            btnRemoveQ.setAttribute("onclick", "remove(this)")
+            btnRemoveQ.type = "button"
+            btnRemoveQ.innerHTML = "Remove Question"
+
+            
+            content.append(btnRemoveQ)
             return content
         }
         function addQuestion() {
@@ -55,15 +62,13 @@
         function addOption(btn){
             console.log('btnaddoption is clicked!')
             let parent = btn.parentElement
-            let number = parent.childElementCount - 5
 
             let content = document.createElement("div")
             content.className = "option"
-            content.id = "q" + parent.id.replace(/[^0-9]/g, "") + "option" + number
+            // content.id = "q" + parent.id.replace(/[^0-9]/g, "") + "option" + number
             
-
             let p = document.createElement("p")
-            p.innerHTML = "Option " + number + ": "
+            p.innerHTML = "Option: "
             content.append(p)
 
             let f = document.createElement("input")
@@ -72,9 +77,21 @@
             f.className = "option"
             content.append(f)
 
+            let btnRemove = document.createElement("button")
+            btnRemove.innerHTML = "Remove option"
+            btnRemove.setAttribute("onclick", "remove(this)")
+            btnRemove.type = "button"
+            content.append(btnRemove)
+
             parent.insertBefore(content, btn)
             
         }
+        function remove(btn){
+            console.log("remove option button is clicked")
+            let parent = btn.parentElement
+            parent.remove()
+        }
+
     </script>
 </head>
 <body>
