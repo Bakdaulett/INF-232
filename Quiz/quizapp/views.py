@@ -138,6 +138,8 @@ def addQuiz(request):
 
 
 def question(request, id):
+    if(request.user.groups.filter(name='creator').exists()):
+        return redirect("/")
     if request.method == 'POST':
         questions = Question.objects.all().filter(quiz_id=id)
         score = 0
