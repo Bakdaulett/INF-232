@@ -11,11 +11,16 @@ a {
 
 h2 {
     color: #007bff;
+    margin-left: 1vw;
+}
+
+p {
+    margin-left: 2vw;
 }
 
 #title {
-    width: 100%;
-    margin-bottom: 20px;
+    
+    margin: 0 0 20px 2vw;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -46,7 +51,7 @@ h2 {
     box-sizing: border-box;
 }
 
-.questionForm .btnAddOption {
+.questionForm button {
     display: block;
     margin: 20px 0 0 0;
     padding: 10px;
