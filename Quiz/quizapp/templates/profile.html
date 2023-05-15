@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{% load static %}
+
+{% block content %}
+
+
+    <h2>Profile</h2>
+<form method="post" enctype="multipart/form-data">
+    {% load crispy_forms_tags %}
+     {% csrf_token %}
+<div>
+ <p style = "font-size: 17px">
+    {% if user.profile.image %}
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style = "border-radius: 50%; height: 50px; width: 50px; margin-right: 20px">
+    {% endif %}
+    
+  <strong>Username: </strong> {{ request.user.username }} <br>
+      <strong>Name:</strong> {{ request.user.first_name }} {{ request.user.last_name }}<br>
+ <strong>Date Joined:</strong> {{ request.user.date_joined }} <br>
+ <strong>Email:</strong> {{ request.user.email }}<br>
+ <strong>Last Login:</strong> {{ request.user.last_login }}<br>
+    {{ u_form|crispy }} {{ p_form|crispy }}
+<button type="submit">Update</button>
+ </p>
+</div>
+</form>
+    <br>
+
+  {% if uploaded_file_url %}
+    <p>The account photo was successfully replaced!</p>
+  {% endif %}
+  <p><a href="{% url 'index' %}">Return to home page</a></p>
+
+{% endblock %}

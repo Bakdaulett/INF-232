@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -42,3 +42,10 @@ class QuizResult(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
     timetaken = models.IntegerField()
     score = models.IntegerField()
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(default='profile_pics/default.png', upload_to='profile_pics', null=True,  blank=True)
+
+    def str(self):
+        return f'{self.user.username} Profile'

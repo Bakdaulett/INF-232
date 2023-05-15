@@ -10,6 +10,7 @@ from django.template import loader
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
+from .forms import UserUpdateForm, ProfileUpdateForm
 from django.db import transaction
 import random
 
@@ -66,6 +67,9 @@ def my_registration_view(request):
         myuser = User.objects.create_user(username, email, pass1)
         myuser.is_staff = True
         myuser.save()
+
+        record = Profile(user=myuser)
+        record.save()
 
         if isteach == "creator":
             my_group = Group.objects.get(name='creator')
@@ -207,5 +211,27 @@ def teacher_results(request, id):
     }
     return render(request, 'teacher_results.html', context)
 
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('index')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'profile.html', context)
 
 
