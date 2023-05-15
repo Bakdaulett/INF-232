@@ -40,4 +40,5 @@ class QuizResult(models.Model):
     res_id = models.AutoField(primary_key=True)
     quiz_id = models.ForeignKey(Quiz, on_delete=models.CASCADE, null=True)
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
+    timetaken = models.IntegerField()
     score = models.IntegerField()

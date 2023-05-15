@@ -165,7 +165,7 @@ def question(request, id):
             'total': total
         }
         for q in questions:
-            qr = QuizResult(quiz_id=q.quiz_id, student_id_id=request.user.id, score=score)
+            qr = QuizResult(quiz_id=q.quiz_id, student_id_id=request.user.id, timetaken=int(request.POST.get('timer')), score=score)
             qr.save()
         return render(request, 'result.html', context)
 
